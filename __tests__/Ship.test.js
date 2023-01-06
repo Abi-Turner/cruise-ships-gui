@@ -31,6 +31,7 @@ describe('Ship', () => {
     ship.setSail();
 
     expect(ship.currentPort).toBeFalsy();
+    expect(dover.ships).not.toContain(ship);
     
   })
 
@@ -44,6 +45,7 @@ describe('Ship', () => {
     ship.dock();
 
     expect(ship.currentPort).toBe(calais);
+    expect(calais.ships).toContain(ship);
   });
 
   it('can\'t sail further than its itinerary', () => {
@@ -56,6 +58,14 @@ describe('Ship', () => {
     ship.dock();
 
     expect(() => ship.setSail()).toThrowError('End of itinerary reached');
+  })
+
+  it('gets added to port on instantiation', () => {
+    const dover = new Port('Dover');
+    const itinerary = new Itinerary([dover]);
+    const ship = new Ship(itinerary);
+
+    expect(dover.ships).toContain(ship);
   })
 });
 
