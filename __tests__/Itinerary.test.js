@@ -1,7 +1,6 @@
 /* globals describe it expect */
 const Itinerary = require('../src/Itinerary.js');
-const Port = require('../src/Port.js');
-const Ship = require('../src/Ship.js');
+
 
 describe('Itinerary', () => {
     it('can be instantiated', () => {

@@ -35,4 +35,3 @@ Ship.prototype.dock = function() {
 
 
 module.exports = Ship;
-
